@@ -10,6 +10,8 @@ import App from './App';
  * @requires react
  */
 const root = ReactDOM.createRoot(document.getElementById('root'));
+//document.body.classList.add("dark-theme"); //!new 
+
 root.render(
   <React.StrictMode>
     <App/>

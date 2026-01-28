@@ -1,8 +1,21 @@
+ import './styles/Home.css';
+import React, { useState, useEffect } from 'react';
+import TrainList from './TrainList';
+import Search from './Search';
+import TrainPopup from './TrainPopup'; 
+
+
+
+/* 
 import './styles/Home.css';
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react';
 import TrainList from './TrainList';
 import Search from './Search';
 import TrainPopup from './TrainPopup';
+import { IoClose } from "react-icons/io5"; */
+
+
+
 
 import { IoClose } from "react-icons/io5";
 
@@ -22,6 +35,8 @@ function Home({allRoutes, allStations, setRefresh, currentTrains, globalSearchOb
 }){
     const [selectedTrain, setSelectedTrain] = useState({});
     const [showModal, setShowModal] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
+
 
     const getStationOptions = () => {
         let renderedStations = allStations.map(station => {
@@ -30,6 +45,17 @@ function Home({allRoutes, allStations, setRefresh, currentTrains, globalSearchOb
         renderedStations.unshift(<option value={""} key={""}>{}</option>);
         return renderedStations;
     }
+
+    
+
+     useEffect(() => { //!NEW, BUTTON TOGGGLE FOR DARK MODE
+    if (darkMode) {
+        document.body.classList.add("dark-theme");
+    } else {
+        document.body.classList.remove("dark-theme");
+    }
+}, [darkMode]);  
+
 
     const getRouteOptions = () => {
         let renderedRoutes = allRoutes.sort((a, b) => (a.Name).localeCompare(b.Name)).map(route => {
@@ -55,6 +81,7 @@ function Home({allRoutes, allStations, setRefresh, currentTrains, globalSearchOb
     const modal = <TrainPopup onClose={handleModalClose} actionBar={closeButton} train={selectedTrain}/>
     return (
         <div className='home-page'>
+            
             <div className='search-container'>
               <Search className='Search'
                 routes = {getRouteOptions()}

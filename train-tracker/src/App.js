@@ -139,6 +139,7 @@ function App() {
                         <Link to="/home" className="nav-icon-link"><IoHomeOutline size={30} /></Link>
                         <Link to="/map" className="nav-icon-link"><FaMapLocationDot size={30} /></Link>
                         <Link to="/trains/all" className="nav-icon-link"><IoTrainOutline size={30} /></Link>
+                        
                     </div>
                 ) : (
                     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`} id="mySidebar">
@@ -162,17 +163,31 @@ function App() {
                                 <Link to="/trains/all" className="nav-link">Trains</Link>
                             </div>
                         ) : (
-                            <div className="nav-icons">
-                                <Link to="/home" className="nav-icon-link">
-                                    <IoHomeOutline size={30} />
-                                </Link>
-                                <Link to="/map" className="nav-icon-link">
-                                    <FaMapLocationDot size={30} />
-                                </Link>
-                                <Link to="/trains/all" className="nav-icon-link">
-                                    <IoTrainOutline size={30} />
-                                </Link>
-                            </div>
+                    <div className="nav-icons">
+    <Link to="/home" className="nav-icon-link">
+        <IoHomeOutline size={30} />
+    </Link>
+    <Link to="/map" className="nav-icon-link">
+        <FaMapLocationDot size={30} />
+    </Link>
+    <Link to="/trains/all" className="nav-icon-link">
+        <IoTrainOutline size={30} />
+    </Link>
+
+    {/* INFO TAB AT BOTTOM NEW FEATURE */}
+   <button
+    className="nav-icon-link info-tab"
+    onClick={() =>
+        alert(
+            "TrainTracker\n\n" +
+            "An interactive web application for tracking Amtrak trains across the United States.\n\n" +
+            "Built as part of CIS 3296."
+        )
+    }
+>
+    ℹ️
+</button>
+</div>
                         )}
                     </div>
                 )}
