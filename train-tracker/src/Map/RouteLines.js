@@ -12,7 +12,7 @@ import { Polyline, Popup} from "react-leaflet";
 const RouteLines = ({routes, mapRoute}) =>{
     if (routes){
         let colors = colormap({
-            colormap: 'jet',
+            colormap: 'plasma',
             nshades: routes.length,
             format: 'hex',
             alpha: 1

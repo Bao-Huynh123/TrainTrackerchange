@@ -144,7 +144,9 @@ function App() {
                 ) : (
                     <div className={`sidebar ${sidebarOpen ? 'open' : ''}`} id="mySidebar">
                         <div className="sidebar-header">
+                            <Link to="/home">
                             <img src={train_icon} alt="Train Icon" className="train_icon" />
+                            </Link>
                             {sidebarOpen && (
                                 <h2 className="sidebar-heading">TrainTracker</h2>
                             )}
